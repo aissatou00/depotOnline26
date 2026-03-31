@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Cloner le Github') {
             steps {
-                sh 'git clone https://github.com/aissatou00/depotOnline26.git
+                 git branch: 'main', url: 'https://github.com/aissatou00/depotOnline26.git'
             }
         }
         
