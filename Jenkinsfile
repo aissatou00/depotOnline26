@@ -12,7 +12,6 @@ pipeline {
                  git branch: 'main', url: 'https://github.com/aissatou00/depotOnline26.git'
             }
         }
-
         stage('installer Docker') {
             steps {
                  sh 'sudo apt autoremove docker.io docker-compose -y'
@@ -24,8 +23,7 @@ pipeline {
                  sh 'sudo usermod -aG docker $USER'
                  sh 'sudo systemctl restart docker.service'
             }
-        }
-        
+        } 
     }
 }
 
