@@ -17,7 +17,7 @@ pipeline {
             steps {
                  sh 'sudo apt autoremove docker.io docker-compose -y'
                  sh 'sudo apt-get update'
-                 sh 'sudo apt -get install apt-transport-https ca-certificates curl software-properties-common -y'
+                 sh 'sudo apt-get install apt-transport-https ca-certificates curl software-properties-common -y'
                  sh 'sudo apt-get install docker.io -y' 
                  sh 'sudo apt update'
                  sh 'sudo chmod 666 /var/run/docker.sock'
