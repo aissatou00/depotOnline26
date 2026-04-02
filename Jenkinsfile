@@ -30,7 +30,7 @@ pipeline {
            steps {
                   script{
                 sh 'sudo docker image rm -f "mynginx:latest"'
-                sh 'sudo docker build -t "mynginx:latest" .'
+                sh 'sudo docker build -t "mynginx" .'
                 sh 'sudo docker image ls'
                      }
             }    
