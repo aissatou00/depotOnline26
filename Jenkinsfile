@@ -14,6 +14,7 @@ pipeline {
         }
         stage('installer Docker') {
             steps {
+                 sh 'sudo apt purge docker* -y' 
                  sh 'sudo apt autoremove docker.io docker-compose -y'
                  sh 'sudo apt-get update'
                  sh 'sudo apt-get install apt-transport-https ca-certificates curl software-properties-common -y'
@@ -24,6 +25,25 @@ pipeline {
                  sh 'sudo systemctl restart docker.service'
             }
         } 
+
+        stage('build image docker') {
+           steps {
+                  script{
+                sh 'sudo docker image rm -f "mynginx:latest"'
+                sh 'sudo docker build -t "mynginx" .'
+                sh 'sudo docker image ls'
+                     }
+            }    
+        }
+
+        
+        stage('Create conteneur nginx') {
+           steps {     
+                sh 'sudo docker rm -f contnginx01'
+                sh 'sudo docker run -d --name contnginx01 --hostname contnginx01 mynginx:latest'
+                sh 'sudo docker ps'     
+            }    
+        }        
     }
 }
 
