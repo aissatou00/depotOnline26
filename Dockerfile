@@ -3,4 +3,4 @@ RUN apt update -yq \
         && apt install net-tools -y \
         && apt install nano iproute2 ssh -y \
         && apt install iputils-ping -y
-COPY MONSITE/ /usr/share/nginx.html/
+COPY MONSITE/ /usr/share/nginx/html/
