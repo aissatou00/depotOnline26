@@ -30,20 +30,12 @@ pipeline {
            steps {
                   script{
                 sh 'sudo docker image rm -f "mynginx:latest"'
-                sh 'sudo docker build -t "mynginx" .'
+                sh 'sudo docker build -t "mynginx:latest" .'
                 sh 'sudo docker image ls'
                      }
             }    
         }
 
-        stage('Create conteneur nginx') {
-           steps {
-                  script{
-                sh 'sudo docker run -d --name contnginx01 --hostname contnginx01 mynginx:latest'
-                sh 'sudo docker ps'
-                     }
-            }    
-        }
         
     }
 }
