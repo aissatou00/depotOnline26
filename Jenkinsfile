@@ -39,6 +39,7 @@ pipeline {
         
         stage('Create conteneur nginx') {
            steps {     
+                sh 'sudo docker rm -f contnginx01'
                 sh 'sudo docker run -d --name contnginx01 --hostname contnginx01 mynginx:latest'
                 sh 'sudo docker ps'     
             }    
